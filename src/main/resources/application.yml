@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: buddy
+
+server:
+  port: 8080
+
+google:
+  url: "https://sheets.googleapis.com"
+  sheetsApi: "v4/spreadsheets"
+  account:
+    spreadsheetsId: "1HLw4CFkO71G4G2w6F42lLRbonKBB9GVrAPZ-L2Ju6XE"
+    key: "AIzaSyB1WUAhOB8Na7cnzORiBOu5nLF5cd9N6tE"
+    buddy:
+      accounts: "/values/buddy-accounts!A2:D"
+      movementsVariable: "/values/buddy-despesas!A2:H"
+      movementsFixed: "/values/buddy-eventos-fixos!A2:U"
