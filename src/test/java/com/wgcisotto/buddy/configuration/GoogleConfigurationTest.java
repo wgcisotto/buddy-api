@@ -1,5 +1,6 @@
 package com.wgcisotto.buddy.configuration;
 
+import com.wgcisotto.buddy.google.sheets.configuration.GoogleConfig;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

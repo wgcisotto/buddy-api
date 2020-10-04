@@ -1,9 +1,14 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: buddy
-
-server:
-  port: 8080
+  data:
+    mongodb:
+      database: buddy-initial-db
+      host: localhost
+      port: 27017
 
 google:
   url: "https://sheets.googleapis.com"

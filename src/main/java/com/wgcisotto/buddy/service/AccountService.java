@@ -1,12 +1,7 @@
 package com.wgcisotto.buddy.service;
 
-import com.wgcisotto.buddy.model.Account;
+import com.fasterxml.jackson.databind.ser.Serializers;
+import com.wgcisotto.buddy.entity.Account;
 
-import java.util.stream.Stream;
-
-public interface AccountService {
-
-    Stream<Account> findAll();
-
-    Account create(Account account);
+public interface AccountService extends BaseService<Account> {
 }
