@@ -9,14 +9,15 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.wgcisotto</groupId>
-	<artifactId>buddy</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>buddy-api</artifactId>
+	<version>0.0.1</version>
 	<name>buddy</name>
 	<description>Personal project to control daily tasks</description>
 
 	<properties>
 		<java.version>14</java.version>
 		<springfox-version>2.7.0</springfox-version>
+		<docker.image.prefix>wgcisotto</docker.image.prefix>
 	</properties>
 
 	<dependencies>
@@ -104,14 +105,37 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.7.0</version>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.7</version>
 				<configuration>
-					<source>14</source>
-					<target>14</target>
-					<encoding>UTF-8</encoding>
+					<repository>${docker.image.prefix}/${artifactId}</repository>
+					<tag>${project.version}</tag>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.6</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<!-- attached to Maven test phase -->
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
